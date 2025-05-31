@@ -5,15 +5,15 @@ To Request Data:
 1. Convert image to a Base64 string and write it to a text file
 2. Create a flag file to notify microservice to start
    
-Example call: send_img(img_filename, "img.txt", "ready.flag")
+Example call: send_img(img_filename, "img.txt", "ready.flag") <br/>
 
-Revision: Example of code I used to request data from the microservice
+Revision: Example of code I used to request data from the microservice <br/>
 
-def send_image(file_path, output_path, flag_path):
-    try:
-        with open(file_path, "rb") as image_file:
-            # convert the image to Base64 string
-            encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
+def send_image(file_path, output_path, flag_path): <br/>
+    try: <br/>
+        with open(file_path, "rb") as image_file: <br/>
+            # convert the image to Base64 string<br/>
+            encoded_string = base64.b64encode(image_file.read()).decode("utf-8")<br/>
             
         # write the encoded image to the text file
         with open(output_path, "w") as file:
@@ -32,13 +32,13 @@ To Recieve Data:
 1. Once the microservice is done enhancing the image, it sends the data to the output text file
 2. The main program should moniter this text file and convert the Base64 string back into an image
    
-Example call: receive_img("processed_img.txt", "enhanced_clothing.png")
+Example call: receive_img("processed_img.txt", "enhanced_clothing.png")<br/>
 
-Revision: Example of code I used to recieve data from the microservice
+Revision: Example of code I used to recieve data from the microservice<br/>
 
-def receive_image(input_path, output_path):
-    print("Waiting for processed image...")
-    while not os.path.exists(input_path):
+def receive_image(input_path, output_path):<br/>
+    print("Waiting for processed image...")<br/>
+    while not os.path.exists(input_path):<br/>
         time.sleep(1)
 
     with open(input_path, "r") as file:
