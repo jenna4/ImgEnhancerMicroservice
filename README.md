@@ -6,6 +6,7 @@ To Request Data:
 2. Create a flag file to notify microservice to start
    
 Example call: send_img(img_filename, "img.txt", "ready.flag")
+
 Revision: Example of code I used to request data from the microservice
 
 def send_image(file_path, output_path, flag_path):
@@ -13,7 +14,7 @@ def send_image(file_path, output_path, flag_path):
         with open(file_path, "rb") as image_file:
             # convert the image to Base64 string
             encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
-        
+            
         # write the encoded image to the text file
         with open(output_path, "w") as file:
             file.write(encoded_string)
@@ -32,6 +33,7 @@ To Recieve Data:
 2. The main program should moniter this text file and convert the Base64 string back into an image
    
 Example call: receive_img("processed_img.txt", "enhanced_clothing.png")
+
 Revision: Example of code I used to recieve data from the microservice
 
 def receive_image(input_path, output_path):
